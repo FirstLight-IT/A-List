@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SWAPNEST</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Montserrat:wght@900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            height: 100vh;
+            width: 100vw;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .signup {
+            flex: 1;
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 230px;
+        }
+
+        .signup h2 {
+            font-size: 32px;
+            color: #3d2b1f;
+            margin-bottom: 80px; 
+        }
+
+        .form-wrapper {
+            width: 320px;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px;
+            margin-bottom: 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background-color: #3d2b1f;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .logo {
+            flex: 1;
+            background-color: #e2f9b8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 82px;
+            color: #704f37;
+            letter-spacing: -4px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="signup">
+        <h2>Create Account</h2>
+        <div class="form-wrapper">
+            <form>
+                <input type="text" placeholder="Full Name">
+                <input type="email" placeholder="Email Address">
+                <input type="password" placeholder="Password">
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="logo">
+        <h1>IASite</h1>
+    </div>
+
+</body>
+</html>
