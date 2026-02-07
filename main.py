@@ -1,16 +1,12 @@
-from Website import create_app
-from flask import render_template, request
+from website import getApp, db
+from flask import render_template
 
-app = create_app()
+app = getApp()
 
-@app.route('/')
-def default():
-    return "<h1>WELCOME TO IASite</h1>"
-
-@app.route('/login')
-def login():
-    return render_template('ias_signup.html')
+#creating the database
+with app.app_context():
+   db.create_all()
 
 
-if __name__ ==  '__main__':
-    app.run(debug=True)   
+if __name__ == '__main__':
+    app.run(debug=True)
