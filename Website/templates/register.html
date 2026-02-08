@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}Registration{% endblock%}
+{% block title %}Sign Up{% endblock%}
 {% block styles %}<link rel="stylesheet" href="../static/styles/register.css">{% endblock %}
 {% block linkedCSS %} <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Montserrat:wght@900&display=swap" rel="stylesheet">{% endblock%}
 
@@ -15,14 +15,6 @@
             </ul>
         </div>
     {% endif %}
-
-    {% if success %}
-    <div style="color: green; border: 1px solid green; padding: 10px; margin-bottom: 15px;">
-        {{ success }}
-    </div>
-    {% endif %}
-
-    <!--__________________________________________________________________________________-->
 
     <div class="signup">
         <h2>Create Account</h2>

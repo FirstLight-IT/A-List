@@ -86,12 +86,14 @@ def logout():
 def admin():
     if current_user.role != 'admin':
         abort(403)
-    return "<h1>ADMIN DASHBOARD</h1>"
+
+    users = User.query.all()
+    return render_template('admin.html', users=users)
 
 
 @bp.app_errorhandler(403)
 def forbidden(e):
-    return "<h2>403 - ACCESS DENIED</h2>", 403
+    return render_template('denied-access.html'), 403
 
 
 @bp.route('/', methods=['GET', 'POST'])
