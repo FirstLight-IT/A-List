@@ -4,21 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}website{% endblock %}</title>
-    <link rel="stylesheet" href="../static/style.css">
+    <link rel="icon" href="../static/assets/A-Logo.svg">
+    <link rel="stylesheet" href="../static/styles/style.css">
+    {% block styles %}{% endblock %}
+    {% block linkedCSS %}{% endblock%}
     <script src="../static/script.js" defer></script>
 </head>
 <body>
     {% block content %}
     {% endblock%}
 
-<!--
-    {% with messages = get_flashed_messages(with_categories=true) %}
-        {% if messages %}
-            {% for category, message in messages %}
-                <div class="{{ category }}">{{ message }}</div>
-            {% endfor %}
-        {% endif %}
-    {% endwith %}
--->
 </body>
 </html>

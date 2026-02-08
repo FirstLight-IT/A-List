@@ -3,6 +3,27 @@
 
 {% block content %}
 
-    <h1>Welcome BRUH! {{ current_user.email }}!</h1>
+    <h1>Welcome to A-LIST, {{ current_user.username }}!</h1>
+
+    <form method="POST" action="{{ url_for('routes.todo') }}">
+        <input type="text" name="task" placeholder="New task" required>
+        <button type="submit">Add</button>
+    </form>
+
+    <ul>
+        {% for todo in todos %}
+            <li>
+                {{ todo.title }}
+                <a href="{{ url_for('routes.delete_task', id=todo.id) }}">❌</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <a href="{{ url_for('routes.logout') }}">Logout</a>
+
+
+
+
+
 
 {% endblock %}

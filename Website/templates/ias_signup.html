@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>IASite</title>
+    <title>A-List</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Montserrat:wght@900&display=swap" rel="stylesheet">
+    <link rel="icon" href="/website/static/assets/A-Logo.svg">
     <style>
         * {
             box-sizing: border-box;
@@ -49,7 +50,7 @@
         button {
             width: 100%;
             padding: 14px;
-            background-color: #3d2b1f;
+            background-color: #ff4343;
             color: #fff;
             border: none;
             border-radius: 8px;
@@ -59,7 +60,7 @@
 
         .logo {
             flex: 1;
-            background-color: #e2f9b8;
+            background-color: #ff4343;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -68,8 +69,14 @@
         .logo h1 {
             font-family: 'Montserrat', sans-serif;
             font-size: 82px;
-            color: #704f37;
+            color: #ffffff;
             letter-spacing: -4px;
+        }
+
+        .main-logo{
+
+            width: 600px;
+
         }
     </style>
 </head>
@@ -77,18 +84,23 @@
 
     <div class="signup">
         <h2>Create Account</h2>
-        <div class="form-wrapper">
+        <div class="form-wrapper"></div>
             <form>
-                <input type="text" placeholder="Full Name">
+                <input type="text" placeholder="Username">
                 <input type="email" placeholder="Email Address">
                 <input type="password" placeholder="Password">
+                <input type="password" placeholder="Confirm Password">
                 <button type="submit">Sign Up</button>
             </form>
-        </div>
+        
     </div>
 
     <div class="logo">
-        <h1>IASite</h1>
+        
+
+        <div>
+            <img src="/website/static/assets/A-Liste(white).svg" class="main-logo">
+        </div>
     </div>
 
 </body>

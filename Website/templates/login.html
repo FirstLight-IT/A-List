@@ -1,10 +1,12 @@
 {% extends 'base.html' %}
 {% block title %}LOGIN{% endblock %}
+{% block styles %}<link rel="stylesheet" href="../static/styles/register.css">{% endblock %}
+{% block linkedCSS %} <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Montserrat:wght@900&display=swap" rel="stylesheet">{% endblock%}
 
 {% block content %}
 
     {% if errors %}
-        <div style="color: red;">
+        <div class="pop-up">
             <ul>
                 {% for error in errors %}
                      <li>{{ error }}</li>
@@ -14,14 +16,33 @@
     {% endif %}
 
 
-    <form method="POST">
+    <div class="signup">
+        <h2>LOGIN</h2>
+        <div class="form-wrapper">
+            <form method="POST">
+                <input type="email" name="email" required placeholder="email">
+                <input type="password" name="password" required placeholder="password">
+                <button type="submit">Log In</button>
 
-        <h1>LOGIN</h1>
-        <br><br>
-        <input type="email" name="email" required placeholder="email"><br><br>
-        <input type="password" name="password" required placeholder="password"><br><br>
-        <input type="submit">
+            </form>
+        </div>
 
-    </form>
+
+        <div class="footer">
+            Don't have an account?
+                <u>
+                    <a href="{{ url_for('routes.register')}}">Sign Up</a>
+                </u> instead.
+        </div>
+    </div>
+
+     <div class="logo">
+        <div>
+            <img src="../static/assets/A-Liste(white).svg" class="main-logo">
+        </div>
+    </div>
+
+   
+
 
 {% endblock %}

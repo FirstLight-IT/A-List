@@ -8,7 +8,7 @@ passwordInput.addEventListener('input', () => {
 
     // Immediately mark as weak if contains spaces
     if (/\s/.test(val)) {
-        strengthMessage.textContent = "No spaces allowed";
+        strengthMessage.textContent = "no spaces allowed";
         strengthMessage.style.color = "red";
         return;
     }
@@ -26,19 +26,19 @@ passwordInput.addEventListener('input', () => {
     switch(score){
         case 0:
         case 1:
-            strength = 'Weak';
+            strength = 'weak';
             color = 'red';
             break;
         case 2:
-            strength = 'Medium';
+            strength = 'medium';
             color = 'orange';
             break;
         case 3:
-            strength = 'Strong';
+            strength = 'strong';
             color = 'blue';
             break;
         case 4:
-            strength = 'Very Strong';
+            strength = 'very strong';
             color = 'green';
             break;
     }
