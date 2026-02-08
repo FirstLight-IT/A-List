@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}Registration{% endblock%}
+
+
+{% block content %}
+
+    {% if errors %}
+        <div style="color: red; border: 1px solid red; padding: 10px; margin-bottom: 15px;">
+            <ul>
+            {% for error in errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+
+    {% if success %}
+    <div style="color: green; border: 1px solid green; padding: 10px; margin-bottom: 15px;">
+        {{ success }}
+    </div>
+    {% endif %}
+
+    <!--__________________________________________________________________________________-->
+
+    <form method="POST">
+        <br><br>
+        <input type="email" name="email" required placeholder="email" id="email"><br><br>
+
+        <input type="text" name="password" required placeholder="password" id="password"><br><br>
+        <small id="strength-message" style="font-weight:bold;"></small><br><br>
+
+        <input type="password" name="confirm_password" required placeholder="confirm password" id="confirm-password"><br><br><br>
+
+        <input type="submit">
+    </form>
+
+{% endblock %}

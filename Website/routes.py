@@ -5,3 +5,88 @@ from . import db
 from .models import User
 
 bp = Blueprint('routes', __name__)
+
+@bp.route('/register', methods=['GET', 'POST'])
+def register():
+    errors = []
+    if request.method == 'POST':
+        email = request.form.get('email').strip()
+        password = request.form.get('password')
+        confirm_password = request.form.get('confirm_password')
+
+
+        if not email or not password or not confirm_password:
+            errors.append("All fields are required.")
+
+        if password != confirm_password:
+            errors.append("Passwords don't match!")
+
+        if len(password) < 6:
+            errors.append("Password must be at least 6 characters.")
+
+        if User.query.filter_by(email=email).first():
+            errors.append("Email already in use.")
+
+        if not errors:
+            #password hashing
+            hashed_password = generate_password_hash(password)
+            new_user = User(email=email, password_hash=hashed_password)
+            db.session.add(new_user)
+            db.session.commit()
+            return redirect(url_for('routes.login'))
+       
+
+    return render_template('register.html', errors=errors)
+
+
+@bp.route('/login', methods=['GET', 'POST'])
+def login():
+
+    errors = []
+
+    if request.method == 'POST':
+        email = request.form.get('email')
+        password = request.form.get('password')
+
+        user = User.query.filter_by(email=email).first()
+
+        if not user or not check_password_hash(user.password_hash, password):
+
+            if not user:
+                errors.append("No account found with that email")
+            elif not check_password_hash(user.password_hash, password):
+                errors.append("Incorrect Password!")
+
+            return render_template('login.html', errors=errors)
+
+        login_user(user)
+        return redirect(url_for('routes.home'))
+
+    return render_template('login.html')
+
+
+@bp.route('/')
+@login_required
+def home():
+    return render_template('home.html') 
+
+
+@bp.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for('routes.login'))
+
+
+@bp.route('/admin')
+@login_required
+def admin():
+    if current_user.role != 'admin':
+        abort(403)
+    return "<h1>ADMIN DASHBOARD</h1>"
+
+
+@bp.app_errorhandler(403)
+def forbidden(e):
+    return "<h2>403 - ACCESS DENIED</h2>", 403
+
