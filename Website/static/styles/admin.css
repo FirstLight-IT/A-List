@@ -39,6 +39,8 @@ td {
 th {
   border-bottom: 2px solid #383838; 
   padding: 12px;
+  background-color: #ff4343;
+  color:white;
 }
 
 .table-container{
